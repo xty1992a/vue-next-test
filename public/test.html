@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1.0,user-scalable=no">
+  <title>Title</title>
+  <script type="text/javascript" src="./vue.global.js"></script>
+</head>
+<body>
+<div id="app"></div>
+
+<script type="text/javascript">
+  const { createApp, defineComponent, ref } = Vue
+
+  const Counter = defineComponent({
+    template: `<input type="text">`,
+    props: {value: Number},
+  })
+
+  const App = defineComponent({
+    template: `
+      <div>
+      <Counter :value="count" @input="setCount"/>
+</div>
+    `,
+    components: {Counter},
+    setup() {
+      const count = ref(0)
+      const setCount = value => {
+        count.value = value
+      }
+      return {
+        count,
+		setCount
+      }
+    }
+  })
+
+  createApp(App).mount('#app')
+
+</script>
+
+</body>
+</html>
