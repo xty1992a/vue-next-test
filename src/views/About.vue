@@ -1,11 +1,12 @@
 <script>
 import { h } from "vue";
-import DatePanel from "@/components/DatePanel";
+import Calendar from "@/components/Calendar";
 export default {
   setup() {},
   render: (ctx) => (
     <div class="about">
-      <DatePanel />
+      <Calendar />
+      <Calendar />
     </div>
   ),
 };

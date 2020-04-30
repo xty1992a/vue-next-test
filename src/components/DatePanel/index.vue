@@ -94,7 +94,7 @@ export default {
     };
 
     watchEffect(() => {
-      dateList.value = getDateList(date);
+      dateList.value = getDateList(date.value);
     });
 
     return {
@@ -113,7 +113,7 @@ export default {
 // 生成日历表
 function getDateList(date) {
   // 本月第一天
-  const day0 = dayjs(date.value).startOf("month");
+  const day0 = dayjs(date).startOf("month");
   console.log(fmtDay(day0));
   // 本月第一个星期的星期日
   const firstDay = day0.subtract(day0.get("day"), "day");
